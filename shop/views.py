@@ -23,5 +23,5 @@ def index(request):
 def detail(request,id):
 
     product_object = Product.objects.get(id=id)
-    return render(request , 'shp/detail.html' ,context={'product_object':product_object})
+    return render(request , 'shop/detail.html' ,context={'product_object':product_object})
 
