@@ -82,7 +82,7 @@
                     <div  id= "nm{{product.id}}" class= "card title">
                         {{product.title}}
                     </div>
-                    <div class="card-text">
+                    <div id="price{‌{product.id}}" class="card-text">
                         {{product.price}}
                     </div>
 
@@ -133,7 +133,7 @@
     $(document).on('click','.act',function(){
         console.log("Append the product");
         var item_id = this.id.toString();
-        console.log(item_id)
+        console.log(item_id);
 
         if(cart[item_id]!=undefined){
             cart[item_id] = cart[item_id] + 1;
@@ -144,11 +144,11 @@
             cart[item_id] = 1;
         }
 
-        console.log(cart)
-        localStorage.setItem('cart' , JSON.stringify(cart))
+        console.log(cart);
+        localStorage.setItem('cart' , JSON.stringify(cart));
 
         document.getElementById("cart").innerHTML = "Cart (" +Object.keys(cart).length + ")";
-    })
+    });
 
     
 
@@ -160,7 +160,7 @@
     DisplayCart(cart);
         function DisplayCart(cart){
             var cartString ="";
-            cartString += "";
+            cartString += "<h5>This is your cart</h5>";
             var cartIndex = 1;
             for(var x in cart){
                 cartString += cartIndex;
@@ -168,10 +168,9 @@
                 cartIndex+=1;
             }
     
-            cartString += "<a href='/checkout'><button class='btn btn-warning' id='checkout'>Checkout</button></a>";
-            // document.getElementById("cart").setAttribute('data-content',cartString);
+            cartString += "<a href='/checkout'> <button class='btn btn-warning' id='checkout'>Checkout</button> </a>";
+            document.getElementById("cart").setAttribute('data-content',cartString);
             $('[data-toggle="popover"]').popover();
-        }
-
+        };
 </script>
 </html>
