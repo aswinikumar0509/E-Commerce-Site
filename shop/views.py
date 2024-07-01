@@ -13,7 +13,7 @@ def index(request):
         Product_object = Product_object.filter(title__icontains=item_name)
     
 
-    paginator = Paginator(Product_object,4)
+    paginator = Paginator(Product_object,5)
     page = request.GET.get('page')
     Product_object = paginator.get_page(page)
     
