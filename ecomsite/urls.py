@@ -24,6 +24,8 @@ urlpatterns = [
 
     path('', include('shop.urls')),
     path('shop/', include('shop.urls')),
+    path('<int:id>/',views.detail,name='detail'),
+    path('checkout/',views.checkout,name='checkout'),
     
     path("admin/", admin.site.urls),
     # path('shop/',include('shop')),
